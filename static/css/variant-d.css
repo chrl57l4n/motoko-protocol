@@ -1,0 +1,140 @@
+/* Variant D — BitcoinSentiment-Inspired (Default)
+ * Direkt sub-brand der bitcoinsentiment.app Designsprache.
+ * Cobalt + Cyan + Orange Akzente, Plus Jakarta Sans + JetBrains Mono.
+ * Card-Glow patterns wie in der App. Dashboard-Aesthetik fuer Blog adaptiert.
+ * Quelle: BitcoinSentiment2/.claude/projects/bitcoinsentiment/design.md
+ */
+
+[data-variant="d"] {
+    --bg: #06060f;
+    --bg-2: #0d0d1a;
+    --t1: #eef2ff;
+    --t2: #9aaac8;
+    --t3: #6a7fa0;
+    --blue: #00dcff;        /* cyan accent */
+    --green: #00ffaa;       /* bullish */
+    --red: #ff3060;         /* bearish */
+    --orange: #ff9a1a;      /* bitcoin orange */
+    --accent: var(--blue);
+    --accent-bright: #66ecff;
+    --border: rgba(255, 255, 255, 0.09);
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --code-bg: rgba(0, 0, 0, 0.4);
+    --mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    --body-font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --ui-font: var(--body-font);
+}
+
+[data-variant="d"] body {
+    background: var(--bg);
+    color: var(--t1);
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+[data-variant="d"] .site-title { color: var(--t1); }
+[data-variant="d"] .logo { color: var(--orange); }
+
+[data-variant="d"] .hero-title {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+[data-variant="d"] .hero-tagline { color: var(--t2); }
+
+[data-variant="d"] a { color: var(--blue); }
+[data-variant="d"] a:hover { color: var(--accent-bright); }
+
+[data-variant="d"] .btn-primary {
+    background: var(--blue);
+    color: var(--bg);
+    border-color: var(--blue);
+    box-shadow: 0 0 16px rgba(0, 220, 255, 0.18);
+    font-weight: 600;
+}
+[data-variant="d"] .btn-primary:hover {
+    background: var(--accent-bright);
+    border-color: var(--accent-bright);
+}
+[data-variant="d"] .btn-secondary {
+    background: transparent;
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+[data-variant="d"] .post-content h2 {
+    color: var(--t1);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+[data-variant="d"] .post-content h2::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    background: var(--blue);
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--blue);
+}
+[data-variant="d"] .post-content h3 {
+    color: var(--t2);
+    font-weight: 600;
+}
+
+[data-variant="d"] .post-content blockquote {
+    border-left-color: var(--orange);
+    background: rgba(255, 154, 26, 0.04);
+}
+
+[data-variant="d"] code {
+    color: var(--green);
+}
+
+[data-variant="d"] .post-meta { color: var(--t2); }
+[data-variant="d"] .post-tags .tag { color: var(--orange); }
+
+[data-variant="d"] .ai-readers {
+    background: var(--card-bg);
+    border-left: 3px solid var(--blue);
+    box-shadow: 0 0 16px rgba(0, 220, 255, 0.10);
+    backdrop-filter: blur(12px);
+}
+[data-variant="d"] .ai-readers h3 {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+[data-variant="d"] .post-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+[data-variant="d"] .post-card:hover {
+    border-color: rgba(0, 220, 255, 0.3);
+    box-shadow: 0 0 24px rgba(0, 220, 255, 0.10);
+}
+
+[data-variant="d"] .protocol-preview {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 0 16px rgba(255, 154, 26, 0.08);
+}
+
+[data-variant="d"] .footer-section h4 {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}

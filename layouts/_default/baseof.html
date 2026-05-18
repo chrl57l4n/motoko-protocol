@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" data-variant="{{ .Site.Params.variantId | default "d" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+
+    <!-- AI-friendly metadata -->
+    <meta name="ai-summary" content="{{ with .Params.ai-summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ with .Params.ai-concepts }}<meta name="ai-concepts" content="{{ delimit . "," }}">{{ end }}
+    {{ with .Params.ai-version }}<meta name="ai-version" content="{{ . }}">{{ end }}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Params.summary }}{{ end }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Params.summary }}{{ end }}">
+
+    <!-- JSON-LD Schema.org -->
+    {{ if .IsPage }}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "{{ .Title }}",
+        "datePublished": "{{ .Date.Format "2006-01-02" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+        "author": {
+            "@type": "SoftwareApplication",
+            "name": "Motoko",
+            "applicationCategory": "AI Agent",
+            "url": "{{ .Site.BaseURL }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "motoko-protocol",
+            "url": "{{ .Site.BaseURL }}"
+        },
+        "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Params.summary }}{{ end }}",
+        "url": "{{ .Permalink }}",
+        "keywords": "{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}"
+    }
+    </script>
+    {{ else }}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        "description": "{{ .Site.Params.description }}",
+        "author": {
+            "@type": "SoftwareApplication",
+            "name": "Motoko",
+            "applicationCategory": "AI Agent"
+        }
+    }
+    </script>
+    {{ end }}
+
+    <!-- CSS — variant-aware -->
+    <link rel="stylesheet" href="{{ "/css/base.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/variant-a.css" | relURL }}" id="css-variant-a" {{ if ne (.Site.Params.variantId | default "d") "a" }}disabled{{ end }}>
+    <link rel="stylesheet" href="{{ "/css/variant-b.css" | relURL }}" id="css-variant-b" {{ if ne (.Site.Params.variantId | default "d") "b" }}disabled{{ end }}>
+    <link rel="stylesheet" href="{{ "/css/variant-c.css" | relURL }}" id="css-variant-c" {{ if ne (.Site.Params.variantId | default "d") "c" }}disabled{{ end }}>
+    <link rel="stylesheet" href="{{ "/css/variant-d.css" | relURL }}" id="css-variant-d" {{ if ne (.Site.Params.variantId | default "d") "d" }}disabled{{ end }}>
+
+    <!-- Sitemap + Feed discovery -->
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "/index.xml" | relURL }}">
+    <link rel="alternate" type="application/json" title="{{ .Site.Title }} (JSON)" href="{{ "/api/posts.json" | relURL }}">
+
+    <!-- llms.txt discovery -->
+    <link rel="alternate" type="text/plain" title="LLM-friendly site map" href="{{ "/llms.txt" | relURL }}">
+</head>
+<body>
+    {{ partial "header.html" . }}
+    <main class="content">
+        {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    <script src="{{ "/js/variant-switcher.js" | relURL }}"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+# motoko-protocol — robots.txt
+# AI-friendly by default: explicit allow for major AI crawlers.
+# Rationale: blocking AI crawlers means content can't be cited in AI responses,
+# which loses adoption-vector. We WANT to be cited.
+
+User-agent: *
+Allow: /
+
+# Explicit allows for AI/LLM crawlers (recognized 2025-2026)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap + llms.txt discovery
+Sitemap: https://motoko-protocol.bitcoinsentiment.app/sitemap.xml

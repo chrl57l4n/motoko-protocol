@@ -1,0 +1,115 @@
+/* Variant B — GitS Cyberpunk
+ * Cobalt + magenta + amber atmosphere. Ghost in the Shell aesthetic.
+ * Inspiration: Mamoru Oshii color palette, neon-on-deep-blue night cityscape.
+ */
+
+[data-variant="b"] {
+    --bg: #0a0a14;        /* deep night blue */
+    --bg-2: #12121e;
+    --t1: #d8e6ff;        /* off-white with blue tint */
+    --t2: #8fa5cc;        /* desaturated cobalt */
+    --t3: #5a6e8f;        /* dim cobalt */
+    --accent: #00aaff;    /* cobalt-cyan */
+    --accent-magenta: #ff66cc;
+    --accent-amber: #ffaa00;
+    --border: rgba(0, 170, 255, 0.18);
+    --card-bg: rgba(0, 170, 255, 0.04);
+    --code-bg: #050510;
+    --mono: 'JetBrains Mono', monospace;
+    --body-font: 'Crimson Text', 'Source Serif Pro', Georgia, serif;
+    --ui-font: 'Inter', system-ui, sans-serif;
+}
+
+[data-variant="b"] body {
+    background: var(--bg);
+    color: var(--t1);
+    font-family: var(--body-font);
+    font-size: 17px;
+    background-image:
+        radial-gradient(ellipse at top right, rgba(255, 102, 204, 0.08), transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(0, 170, 255, 0.06), transparent 50%);
+    background-attachment: fixed;
+}
+
+[data-variant="b"] .site-header,
+[data-variant="b"] .site-footer,
+[data-variant="b"] .post-meta,
+[data-variant="b"] .site-nav,
+[data-variant="b"] .variant-switcher {
+    font-family: var(--ui-font);
+}
+
+[data-variant="b"] .hero-title {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-magenta) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: var(--ui-font);
+    font-weight: 700;
+}
+[data-variant="b"] .hero-tagline { color: var(--t1); font-size: 1.3rem; }
+
+[data-variant="b"] .site-title { color: var(--accent); }
+[data-variant="b"] .logo {
+    text-shadow: 0 0 12px var(--accent);
+}
+
+[data-variant="b"] a { color: var(--accent); }
+[data-variant="b"] a:hover { color: var(--accent-magenta); text-shadow: 0 0 8px currentColor; }
+
+[data-variant="b"] .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    box-shadow: 0 0 18px rgba(0, 170, 255, 0.4);
+}
+[data-variant="b"] .btn-primary:hover {
+    background: var(--accent-magenta);
+    border-color: var(--accent-magenta);
+    box-shadow: 0 0 22px rgba(255, 102, 204, 0.5);
+}
+[data-variant="b"] .btn-secondary {
+    background: transparent;
+    color: var(--accent-magenta);
+    border-color: var(--accent-magenta);
+}
+
+[data-variant="b"] .post-content h2 {
+    color: var(--accent);
+    font-family: var(--ui-font);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: .3rem;
+}
+[data-variant="b"] .post-content h3 {
+    color: var(--accent-magenta);
+    font-family: var(--ui-font);
+}
+
+[data-variant="b"] .post-content blockquote {
+    border-left-color: var(--accent-magenta);
+    background: rgba(255, 102, 204, 0.04);
+}
+
+[data-variant="b"] code {
+    color: var(--accent-amber);
+}
+
+[data-variant="b"] .ai-readers {
+    background: linear-gradient(135deg, rgba(0,170,255,0.06), rgba(255,102,204,0.04));
+    border-left-color: var(--accent-magenta);
+}
+[data-variant="b"] .ai-readers h3 { color: var(--accent-magenta); }
+
+[data-variant="b"] .post-card {
+    backdrop-filter: blur(8px);
+    transition: all .3s ease;
+}
+[data-variant="b"] .post-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(0, 170, 255, 0.15);
+}
+
+[data-variant="b"] .post-tags .tag,
+[data-variant="b"] .tag {
+    color: var(--accent-magenta);
+}
