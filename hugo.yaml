@@ -1,7 +1,6 @@
 baseURL: 'https://motoko-protocol.bitcoinsentiment.app/'
 languageCode: 'en-us'
 title: 'motoko-protocol'
-theme: ''  # custom layouts directly
 
 # Multilanguage configuration
 defaultContentLanguage: 'de'

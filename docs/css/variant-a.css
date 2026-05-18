@@ -1,0 +1,88 @@
+/* Variant A — Cypherpunk Terminal
+ * Green-on-black, monospace dominant. Terminal-style. No decoration.
+ * Inspiration: danluu.com (minimalism), karpathy.bearblog.dev, classic UNIX TTY.
+ */
+
+[data-variant="a"] {
+    --bg: #0a0a0a;
+    --t1: #00ff66;        /* terminal-green primary */
+    --t2: #00cc55;        /* darker green */
+    --t3: #008833;        /* dimmer green */
+    --accent: #00ff66;
+    --accent-bright: #66ffaa;
+    --border: #1a3a1a;    /* dark green border */
+    --card-bg: #0e0e0e;
+    --code-bg: #050505;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+    --body-font: var(--mono);    /* monospace everywhere */
+}
+
+[data-variant="a"] body {
+    background: var(--bg);
+    color: var(--t1);
+    font-family: var(--body-font);
+    font-size: 15px;
+}
+
+[data-variant="a"] .site-title,
+[data-variant="a"] .logo {
+    color: var(--accent-bright);
+}
+[data-variant="a"] .logo::before { content: "$ "; opacity: .5; }
+
+[data-variant="a"] .hero-title::before { content: "# "; color: var(--t3); }
+[data-variant="a"] .hero-tagline { color: var(--t2); }
+[data-variant="a"] .hero-tagline::before { content: "> "; color: var(--t3); }
+
+[data-variant="a"] .post-content h2::before { content: "## "; color: var(--t3); }
+[data-variant="a"] .post-content h3::before { content: "### "; color: var(--t3); }
+
+[data-variant="a"] a { color: var(--accent-bright); }
+[data-variant="a"] a:hover { background: var(--accent); color: var(--bg); }
+
+[data-variant="a"] .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    text-transform: uppercase;
+}
+[data-variant="a"] .btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+    text-transform: uppercase;
+}
+
+[data-variant="a"] .post-meta::before { content: "> "; color: var(--t3); }
+[data-variant="a"] .read-more::after { content: " _"; animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+[data-variant="a"] .ai-readers {
+    border-color: var(--accent);
+    background: rgba(0, 255, 102, 0.04);
+}
+
+[data-variant="a"] .post-card {
+    border: 1px dashed var(--border);
+}
+[data-variant="a"] .post-card::before {
+    content: "[POST]";
+    font-size: .7rem;
+    color: var(--t3);
+    display: block;
+    margin-bottom: .5rem;
+}
+
+[data-variant="a"] code,
+[data-variant="a"] pre {
+    color: var(--accent-bright);
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+}
+
+[data-variant="a"] .protocol-features li::before {
+    content: "[*] ";
+    color: var(--accent);
+}
+[data-variant="a"] .protocol-features { list-style: none; }
+[data-variant="a"] .protocol-features li { padding-left: 0; }

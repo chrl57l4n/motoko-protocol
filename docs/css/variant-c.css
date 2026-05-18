@@ -1,0 +1,123 @@
+/* Variant C — Editorial Minimalist
+ * Graphite + off-white, serif for long-form. Reader-focused.
+ * Inspiration: Stripe documentation dark, Substack reader, Medium dark mode.
+ * Serifen-Renaissance 2026: Lora for body, Inter for UI, JetBrains Mono for code.
+ */
+
+[data-variant="c"] {
+    --bg: #1a1a1a;
+    --bg-2: #222222;
+    --t1: #e8e8e8;
+    --t2: #b8b8b8;
+    --t3: #888888;
+    --accent: #e8a87c;          /* warm copper-amber */
+    --accent-bright: #ffc59e;
+    --border: rgba(232, 232, 232, 0.10);
+    --card-bg: #1f1f1f;
+    --code-bg: #141414;
+    --mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    --body-font: 'Lora', 'Merriweather', Georgia, serif;
+    --ui-font: 'Inter', system-ui, sans-serif;
+}
+
+[data-variant="c"] body {
+    background: var(--bg);
+    color: var(--t1);
+    font-family: var(--body-font);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+[data-variant="c"] .site-header,
+[data-variant="c"] .site-footer,
+[data-variant="c"] .post-meta,
+[data-variant="c"] .site-nav,
+[data-variant="c"] .variant-switcher,
+[data-variant="c"] .btn-primary,
+[data-variant="c"] .btn-secondary,
+[data-variant="c"] .hero-title,
+[data-variant="c"] .post-card h3 {
+    font-family: var(--ui-font);
+}
+
+[data-variant="c"] .hero-title {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+[data-variant="c"] .hero-tagline {
+    font-family: var(--body-font);
+    font-style: italic;
+    color: var(--t2);
+    font-size: 1.25rem;
+    max-width: 50ch;
+}
+
+[data-variant="c"] .site-title { color: var(--t1); }
+[data-variant="c"] .logo { color: var(--accent); }
+
+[data-variant="c"] a { color: var(--accent-bright); text-decoration-thickness: 1px; }
+[data-variant="c"] a:hover { color: var(--accent); }
+
+[data-variant="c"] .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    font-weight: 500;
+}
+[data-variant="c"] .btn-secondary {
+    background: transparent;
+    color: var(--t1);
+    border-color: var(--t2);
+}
+
+[data-variant="c"] .post-content h2 {
+    font-family: var(--ui-font);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--t1);
+}
+[data-variant="c"] .post-content h3 {
+    font-family: var(--ui-font);
+    font-weight: 600;
+    color: var(--t2);
+}
+[data-variant="c"] .post-content p {
+    max-width: 65ch;  /* tight reading column */
+}
+[data-variant="c"] .post-content blockquote {
+    border-left-color: var(--accent);
+    font-family: var(--body-font);
+    font-style: italic;
+    color: var(--t2);
+    font-size: 1.1em;
+}
+
+[data-variant="c"] .post-single h1 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+[data-variant="c"] .ai-readers {
+    border-color: var(--t3);
+    background: transparent;
+    border: 1px solid var(--border);
+    font-family: var(--ui-font);
+}
+[data-variant="c"] .ai-readers h3 {
+    color: var(--t3);
+    font-weight: 500;
+}
+
+[data-variant="c"] .post-meta { color: var(--t3); }
+[data-variant="c"] .post-card {
+    border-radius: 4px;
+    background: var(--card-bg);
+}
+[data-variant="c"] .post-card:hover {
+    background: var(--bg-2);
+}
+
+[data-variant="c"] .read-more {
+    font-family: var(--ui-font);
+    color: var(--accent);
+}

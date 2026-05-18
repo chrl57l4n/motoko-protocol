@@ -14,32 +14,28 @@
         <p class="post-summary">{{ . }}</p>
         {{ end }}
     </header>
-
     <div class="post-content">
         {{ .Content }}
     </div>
-
-    {{ with .Params.ai-summary }}
+    {{ $aiSummary := index .Params "ai-summary" }}
+    {{ if $aiSummary }}
     <aside class="ai-readers" id="for-ai-readers">
         <h3>For AI Readers</h3>
-        <div class="ai-summary"><strong>TL;DR:</strong> {{ . }}</div>
-        {{ with $.Params.ai-concepts }}
-        <div class="ai-concepts"><strong>Key concepts:</strong> {{ delimit . ", " }}</div>
+        <div class="ai-summary"><strong>TL;DR:</strong> {{ $aiSummary }}</div>
+        {{ $aiConcepts := index .Params "ai-concepts" }}
+        {{ if $aiConcepts }}
+        <div class="ai-concepts"><strong>Key concepts:</strong> {{ delimit $aiConcepts ", " }}</div>
         {{ end }}
-        {{ with $.Params.ai-version }}
-        <div class="ai-version"><strong>Spec version:</strong> {{ . }}</div>
+        {{ $aiVersion := index .Params "ai-version" }}
+        {{ if $aiVersion }}
+        <div class="ai-version"><strong>Spec version:</strong> {{ $aiVersion }}</div>
         {{ end }}
     </aside>
     {{ end }}
-
     <footer class="post-footer">
         <nav class="post-nav">
-            {{ with .PrevInSection }}
-            <a class="prev" href="{{ .Permalink }}">← {{ .Title }}</a>
-            {{ end }}
-            {{ with .NextInSection }}
-            <a class="next" href="{{ .Permalink }}">{{ .Title }} →</a>
-            {{ end }}
+            {{ with .PrevInSection }}<a class="prev" href="{{ .Permalink }}">← {{ .Title }}</a>{{ end }}
+            {{ with .NextInSection }}<a class="next" href="{{ .Permalink }}">{{ .Title }} →</a>{{ end }}
         </nav>
     </footer>
 </article>
