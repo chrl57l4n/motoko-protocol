@@ -1,6 +1,4 @@
 baseURL: 'https://chrl57l4n.github.io/motoko-protocol/'
-relativeURLs: true
-canonifyURLs: true
 languageCode: 'en-us'
 title: 'motoko-protocol'
 
